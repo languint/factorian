@@ -1,0 +1,14 @@
+services:
+  factorio:
+    image: factoriotools/factorio:stable
+    container_name: factorio
+    restart: unless-stopped
+    ports:
+      - "34197:34197/udp"
+      - "27015:27015/tcp"
+    volumes:
+      - /opt/factorio:/factorio
+    environment:
+      - GENERATE_NEW_SAVE=true
+      - SAVE_NAME=factorian
+      - RCON_PORT=27015
